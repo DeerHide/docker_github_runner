@@ -1,5 +1,5 @@
 
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 # ARCH can be amd64 or arm64
 ARG ARCH
