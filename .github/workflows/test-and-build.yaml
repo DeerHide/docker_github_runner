@@ -59,6 +59,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ghcr.io/DeerHide/docker_github_runner:${{ github.sha }}
+          tags: ghcr.io/deerhide/docker_github_runner:${{ github.sha }}
           build-args: |
             ARCH=${{ matrix.arch }}
