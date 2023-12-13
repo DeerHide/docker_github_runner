@@ -8,7 +8,7 @@ on:
 
 jobs:
   hadolint:
-    name: HadoLint
+    name: lint-hadolint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,7 +24,7 @@ jobs:
             const output = `
             #### Hadolint: \`${{ steps.hadolint.outcome }}\`
             \`\`\`
-            ${process.env.HADOLINT_RESULTS}
+            ${ process.env.HADOLINT_RESULTS }
             \`\`\`
             `;
 
@@ -61,5 +61,6 @@ jobs:
           context: src
           push: true
           tags: ghcr.io/deerhide/docker_github_runner:${{ github.sha }}
+          platforms: linux/${{ matrix.arch }}
           build-args: |
             ARCH=${{ matrix.arch }}
